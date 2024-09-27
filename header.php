@@ -7,7 +7,9 @@
 </head>
 <body <?php body_class(); ?>>
     <header class="bg-blue-500 text-white p-4">
-        <h1 class="text-3xl"><?php bloginfo('name'); ?></h1>
+        <div class="flex items-center">
+            <?php the_custom_logo(); ?> <!-- Remplace le nom par le logo -->
+        </div>
         <nav>
             <?php wp_nav_menu(); ?>
         </nav>
