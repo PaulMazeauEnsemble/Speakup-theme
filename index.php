@@ -1,15 +1,23 @@
 <?php
+/*
+Template Name: HomePage
+*/
+
 include('header.php');
+
+// Récupérer les champs ACF
+$photo = get_field('image');
+$titre = get_field('titre');
 ?>
 
 <div class="grid grid-cols-[3fr_4fr] h-screen">
     <div class="p-4 flex items-end">
-        <h2 class="text-white">Colonne Rouge</h2>
-        <p class="text-white">Ici texte</p>
+        <h1 class="text-white"><?php echo esc_html($titre); ?></h1>
     </div>
     <div class="p-4">
-        <h2 class="text-white">Colonne Bleue</h2>
-        <p class="text-white">Ici image</p>
+        <?php if ($photo) : ?>
+            <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" class="w-full" /> <!-- Afficher l'image -->
+        <?php endif; ?>
     </div>
 </div>
 

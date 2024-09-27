@@ -14,7 +14,7 @@
     </style>
 </head>
 <body <?php body_class(); ?>>
-    <header class="text-white p-4 w-full">
+    <header class="text-white fixed p-4 w-full">
         <div class="flex items-center justify-between">
             <?php the_custom_logo(); ?>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">

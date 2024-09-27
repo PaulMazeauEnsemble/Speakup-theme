@@ -5,7 +5,7 @@ Template Name: Talents Woman
 
 get_header(); ?>
 
-<div class="content mt-7">
+<div class="content">
     <div class="grid grid-cols-12 gap-4 mx-4">
         <?php
         // Inclure le composant talent-cards

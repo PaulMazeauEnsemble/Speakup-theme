@@ -1,0 +1,34 @@
+<?php
+/*
+Template Name: Projects
+*/
+
+get_header(); ?>
+
+<div class="content mt-7">
+    <div class="grid grid-cols-12 gap-4 mx-4">
+        <?php
+        include get_template_directory() . '/components/project-cards.php';
+
+        $args = array(
+            'post_type' => 'projets',
+            'posts_per_page' => -1,
+        );
+        $projects_query = new WP_Query($args);
+
+        if ($projects_query->have_posts()) :
+            while ($projects_query->have_posts()) : $projects_query->the_post();
+                ?>
+                <div class="col-span-4">
+                    <?php display_project_card(get_the_ID()); ?>
+                </div>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else : ?>
+            <p>Aucun projet trouvé.</p>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php get_footer(); ?>

@@ -15,7 +15,7 @@ function mytheme_custom_logo_setup() {
 }
 add_action('after_setup_theme', 'mytheme_custom_logo_setup');
 
-// Enregistrement du type de publication personnalisé 'talents'
+// Enregistrement du type de post personnalisé 'talents'
 function register_talents_post_type() {
     $labels = array(
         'name'               => 'Talents',
@@ -53,5 +53,45 @@ function register_talents_post_type() {
 }
 
 add_action('init', 'register_talents_post_type');
+
+
+// Enregistrement du type de post personnalisé 'projets'
+function register_projets_post_type() {
+    $labels = array(
+        'name'               => 'Projets',
+        'singular_name'      => 'projet',
+        'menu_name'          => 'Projets',
+        'name_admin_bar'     => 'Projet',
+        'add_new'            => 'Ajouter Nouveau',
+        'add_new_item'       => 'Ajouter Nouveau Projet',
+        'new_item'           => 'Nouveau Talent',
+        'edit_item'          => 'Éditer Talent',
+        'view_item'          => 'Voir Projet',
+        'all_items'          => 'Tous les Projets',
+        'search_items'       => 'Rechercher Projets',
+        'parent_item_colon'  => 'Parent Projets:',
+        'not_found'          => 'Aucun projet trouvé.',
+        'not_found_in_trash' => 'Aucun projet trouvé dans la corbeille.'
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'projets'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array('title', 'editor', 'thumbnail')
+    );
+
+    register_post_type('projets', $args);
+}
+
+add_action('init', 'register_projets_post_type');
 
 ?>
