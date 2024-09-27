@@ -15,4 +15,43 @@ function mytheme_custom_logo_setup() {
 }
 add_action('after_setup_theme', 'mytheme_custom_logo_setup');
 
+// Enregistrement du type de publication personnalisé 'talents'
+function register_talents_post_type() {
+    $labels = array(
+        'name'               => 'Talents',
+        'singular_name'      => 'Talent',
+        'menu_name'          => 'Talents',
+        'name_admin_bar'     => 'Talent',
+        'add_new'            => 'Ajouter Nouveau',
+        'add_new_item'       => 'Ajouter Nouveau Talent',
+        'new_item'           => 'Nouveau Talent',
+        'edit_item'          => 'Éditer Talent',
+        'view_item'          => 'Voir Talent',
+        'all_items'          => 'Tous les Talents',
+        'search_items'       => 'Rechercher Talents',
+        'parent_item_colon'  => 'Parent Talents:',
+        'not_found'          => 'Aucun talent trouvé.',
+        'not_found_in_trash' => 'Aucun talent trouvé dans la corbeille.'
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'talents'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array('title', 'editor', 'thumbnail')
+    );
+
+    register_post_type('talents', $args);
+}
+
+add_action('init', 'register_talents_post_type');
+
 ?>

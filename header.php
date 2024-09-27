@@ -14,7 +14,7 @@
     </style>
 </head>
 <body <?php body_class(); ?>>
-    <header class="bg-black-bg text-white p-4 relative">
+    <header class="text-white p-4 w-full">
         <div class="flex items-center justify-between">
             <?php the_custom_logo(); ?>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">
@@ -23,7 +23,7 @@
                 </svg>
             </button>
         </div>
-        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-4 menu-closed z-0">
+        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-4 menu-closed z-8">
             <?php the_custom_logo(); ?>
             <div class="grid grid-cols-[3fr_4fr]">
                 <div class="p-4">
