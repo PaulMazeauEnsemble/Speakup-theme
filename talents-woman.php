@@ -40,4 +40,9 @@ get_header(); ?>
     </div>
 </div>
 
+<?php
+// Inclure le composant alphabets
+include get_template_directory() . '/components/alphabets.php';
+?>
+
 <?php get_footer(); ?>

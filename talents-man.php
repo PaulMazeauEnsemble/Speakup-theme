@@ -5,11 +5,8 @@ Template Name: Talents Woman
 
 get_header(); ?>
 
-<div class="content">
-    <h1>Page Talents Femmes</h1>
-    <p>Contenu personnalisé pour la page Talents Femmes.</p>
-
-    <div class="grid grid-cols-12 gap-4">
+<div class="content mt-7">
+    <div class="grid grid-cols-12 gap-4 mx-4">
         <?php
         // Inclure le composant talent-cards
         include get_template_directory() . '/components/talent-cards.php';
@@ -42,5 +39,10 @@ get_header(); ?>
         <?php endif; ?>
     </div>
 </div>
+
+<?php
+// Inclure le composant alphabets
+include get_template_directory() . '/components/alphabets.php';
+?>
 
 <?php get_footer(); ?>

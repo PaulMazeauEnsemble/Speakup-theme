@@ -10,8 +10,9 @@ function display_talent_card($post_id) {
             $audios[] = $audio;
         }
     }
+    $first_letter = strtoupper($title[0]);
     ?>
-    <div class="talent-item flex">
+    <div id="<?php echo $first_letter; ?>" class="talent-item flex">
         <div class="talent-photo w-1/2">
             <?php if ($photo) : ?>
                 <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" />
