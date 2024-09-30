@@ -5,7 +5,7 @@ Template Name: Projects
 
 get_header(); ?>
 
-<div class="content mt-7">
+<div class="content mt-20">
     <div class="grid grid-cols-12 gap-4 mx-4">
         <?php
         include get_template_directory() . '/components/project-cards.php';
