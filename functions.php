@@ -94,4 +94,27 @@ function register_projets_post_type() {
 
 add_action('init', 'register_projets_post_type');
 
+function mytheme_customize_register($wp_customize) {
+    // Ajouter une section pour le texte personnalisé
+    $wp_customize->add_section('mytheme_custom_text_section', array(
+        'title'    => __('Texte Personnalisé', 'mytheme'),
+        'priority' => 30,
+    ));
+
+    // Ajouter un paramètre pour le texte personnalisé
+    $wp_customize->add_setting('mytheme_custom_text', array(
+        'default'   => __('Ici texte', 'mytheme'),
+        'transport' => 'refresh',
+    ));
+
+    // Ajouter un contrôle pour le texte personnalisé
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'mytheme_custom_text_control', array(
+        'label'    => __('Texte Personnalisé', 'mytheme'),
+        'section'  => 'mytheme_custom_text_section',
+        'settings' => 'mytheme_custom_text',
+    )));
+}
+
+add_action('customize_register', 'mytheme_customize_register');
+
 ?>

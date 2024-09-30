@@ -655,6 +655,10 @@ video {
   height: 100vh;
 }
 
+.h-\[calc\(100vh-110px\)\] {
+  height: calc(100vh - 110px);
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -693,6 +697,10 @@ video {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.place-content-center {
+  place-content: center;
 }
 
 .items-end {
