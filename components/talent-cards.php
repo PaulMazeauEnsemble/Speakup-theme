@@ -18,7 +18,7 @@ function display_talent_card($post_id) {
             <?php endif; ?>
         </div>
         <div class="w-1/2 pl-4">
-            <h2 class="text-xl text-white uppercase font-DM"><?php echo esc_html($title); ?></h2>
+            <h2 class="text-xl text-white uppercase font-DM font-thin"><?php echo esc_html($title); ?></h2>
             <div class="talent-audio space-y-4">
                 <?php $audio_counter = 1; ?>
                 <?php foreach ($audios as $audio) : ?>
@@ -33,7 +33,7 @@ function display_talent_card($post_id) {
                                     <line x1="5" y1="4.37114e-08" x2="5" y2="9" stroke="white" stroke-width="2"/>
                                 </svg>
                             </button>
-                            <p class="text-white text-sm ml-2 uppercase font-DM">Extrait <?php echo $audio_counter; ?></p>
+                            <p class="text-white text-sm ml-2 uppercase font-DM font-thin">Extrait <?php echo $audio_counter; ?></p>
                         </div>
                         <div class="progress-bar bg-gray-700 mt-2 h-px flex items-center">
                             <div class="progress bg-white h-0.5"></div>

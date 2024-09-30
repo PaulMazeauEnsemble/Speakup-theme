@@ -23,6 +23,9 @@
         .menu-open #menu-icon line {
             transform-origin: center;
         }
+        .custom-menu li {
+            padding-bottom: 20px; /* Ajustez la valeur selon vos besoins */
+        }
     </style>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
@@ -45,12 +48,22 @@
         </div>
         <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 menu-closed z-8">
             <?php the_custom_logo(); ?>
-            <div class="grid grid-cols-[3fr_4fr]">
-                <div class="p-4">
-                    <p class="text-white">Ici texte</p>
+            <div class="grid grid-cols-10 gap-4">
+                <div class="col-span-3">
+                    <p class="text-white font-Space uppercase">Ici texte</p>
                 </div>
-                <div class="p-4">
-                    <p class="text-white"><?php wp_nav_menu(); ?></p>
+                <div class="col-span-1">
+                    <!-- Colonne vide -->
+                </div>
+                <div class="col-span-3">
+                    <h2 class="text-white text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Nos talents</h2>
+                    <?php wp_nav_menu(array(
+                        'menu_class' => 'text-white text-4xl font-Instrument uppercase custom-menu',
+                        'container_class' => 'custom-menu-container'
+                    )); ?>
+                </div>
+                <div class="col-span-3">
+                    <h2 class="text-white text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Notre Agence</h2>
                 </div>
             </div>
         </nav>
