@@ -15,14 +15,22 @@
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
         .menu-open .line1 {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg);
         }
         .menu-open .line2 {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg);
+        }
+        .menu-open #menu-icon line {
+            transform-origin: center;
         }
     </style>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
     <header class="text-white p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
@@ -35,7 +43,7 @@
                 </svg>
             </button>
         </div>
-        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-4 menu-closed z-8">
+        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 menu-closed z-8">
             <?php the_custom_logo(); ?>
             <div class="grid grid-cols-[3fr_4fr]">
                 <div class="p-4">

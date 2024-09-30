@@ -9,8 +9,8 @@ get_header(); ?>
     <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <div class="grid grid-cols-1 md:grid-cols-10 gap-4 h-auto md:h-screen pt-32 px-8">
             <div class="md:col-span-5">
-                <h1 class="text-white text-4xl pb-16"><?php the_field('titre'); ?></h1>
-                <div class="text-white">
+                <h1 class="text-white text-4xl pb-16 font-Instrument"><?php the_field('titre'); ?></h1>
+                <div class="text-white font-Space">
                     <?php 
                     $paragraphe = get_field('paragraphe');
                     $lines = explode("\n", $paragraphe); // Diviser le texte en lignes
