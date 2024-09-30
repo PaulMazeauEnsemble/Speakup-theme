@@ -1,17 +1,17 @@
 <?php
 /*
-Template Name: Talents Woman
+Template Name: Talents Man
 */
 
 get_header(); ?>
 
 <div class="content pt-20">
-    <div class="grid grid-cols-12 gap-4 mx-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-4">
         <?php
         // Inclure le composant talent-cards
         include get_template_directory() . '/components/talent-cards.php';
 
-        // La boucle pour afficher les talents filtrés par catégorie 'Femme'
+        // La boucle pour afficher les talents filtrés par catégorie 'Hommes'
         $args = array(
             'post_type' => 'talents',
             'posts_per_page' => -1,
@@ -28,7 +28,7 @@ get_header(); ?>
         if ($talents_query->have_posts()) :
             while ($talents_query->have_posts()) : $talents_query->the_post();
                 ?>
-                <div class="col-span-4">
+                <div id="<?php echo $first_letter; ?>" class="col-span-1">
                     <?php display_talent_card(get_the_ID()); ?>
                 </div>
                 <?php

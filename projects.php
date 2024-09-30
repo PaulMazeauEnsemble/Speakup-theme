@@ -6,7 +6,7 @@ Template Name: Projects
 get_header(); ?>
 
 <div class="content mt-20">
-    <div class="grid grid-cols-12 gap-4 mx-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-4">
         <?php
         include get_template_directory() . '/components/project-cards.php';
 
@@ -19,7 +19,7 @@ get_header(); ?>
         if ($projects_query->have_posts()) :
             while ($projects_query->have_posts()) : $projects_query->the_post();
                 ?>
-                <div class="col-span-4">
+                <div class="col-span-1">
                     <?php display_project_card(get_the_ID()); ?>
                 </div>
                 <?php

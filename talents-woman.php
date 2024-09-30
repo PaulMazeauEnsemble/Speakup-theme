@@ -5,9 +5,9 @@ Template Name: Talents Woman
 
 get_header(); ?>
 
-<div class="content pt-20">
-    <div class="grid grid-cols-12 gap-4 mx-4">
-        <?php
+<div class="content py-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-4">
+    <?php
         // Inclure le composant talent-cards
         include get_template_directory() . '/components/talent-cards.php';
 
@@ -31,7 +31,7 @@ get_header(); ?>
             while ($talents_query->have_posts()) : $talents_query->the_post();
                 $first_letter = strtoupper(get_the_title()[0]);
                 ?>
-                <div id="<?php echo $first_letter; ?>" class="col-span-4">
+                <div id="<?php echo $first_letter; ?>" class="col-span-1">
                     <?php display_talent_card(get_the_ID()); ?>
                 </div>
                 <?php

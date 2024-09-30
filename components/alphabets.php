@@ -1,7 +1,7 @@
 <div class="alphabet-navigation fixed bottom-0 w-full p-2 bg-black-bg">
-    <div class="flex justify-center space-x-2">
+    <div class="flex justify-center flex-wrap space-x-1 sm:space-x-2">
         <?php foreach (range('A', 'Z') as $letter) : ?>
-            <a href="#<?php echo $letter; ?>" class="text-white hover:text-gray-400 alphabet-link"><?php echo $letter; ?></a>
+            <a href="#<?php echo $letter; ?>" class="text-white text-xs sm:text-sm md:text-base lg:text-lg hover:text-gray-400 alphabet-link"><?php echo $letter; ?></a>
         <?php endforeach; ?>
     </div>
 </div>
