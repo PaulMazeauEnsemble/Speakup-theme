@@ -5,8 +5,8 @@ Template Name: Talents Woman
 
 get_header(); ?>
 
-<div class="content py-20">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-4">
+<div class="content">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-8 pt-32 pb-20">
     <?php
         // Inclure le composant talent-cards
         include get_template_directory() . '/components/talent-cards.php';

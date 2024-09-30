@@ -5,11 +5,11 @@ Template Name: A-propos
 
 get_header(); ?>
 
-<div class="content mt-20 mx-4">
+<div class="content">
     <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-        <div class="grid grid-cols-1 md:grid-cols-10 gap-4 h-auto md:h-[calc(100vh-80px)]">
+        <div class="grid grid-cols-1 md:grid-cols-10 gap-4 h-auto md:h-screen pt-32 px-8">
             <div class="md:col-span-5">
-                <h1 class="text-white text-4xl mb-16"><?php the_field('titre'); ?></h1>
+                <h1 class="text-white text-4xl pb-16"><?php the_field('titre'); ?></h1>
                 <div class="text-white">
                     <?php 
                     $paragraphe = get_field('paragraphe');

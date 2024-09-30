@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
 </head>
 <body <?php body_class(); ?>>
-    <header class="text-white p-4 w-full fixed top-0 left-0 z-10 bg-black-bg">
+    <header class="text-white p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
         <div class="flex items-center justify-between">
             <?php the_custom_logo(); ?>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">
