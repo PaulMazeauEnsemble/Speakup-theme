@@ -11,6 +11,15 @@
         .menu-closed {
             display: none;
         }
+        .line1, .line2 {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .menu-open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-open .line2 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
     </style>
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
@@ -20,8 +29,9 @@
         <div class="flex items-center justify-between">
             <?php the_custom_logo(); ?>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">
-                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                <svg id="menu-icon" width="35" height="12" viewBox="0 0 35 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line class="line1" y1="1" x2="35" y2="1" stroke="white" stroke-width="2"/>
+                    <line class="line2" y1="11" x2="35" y2="11" stroke="white" stroke-width="2"/>
                 </svg>
             </button>
         </div>
@@ -40,15 +50,15 @@
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var menu = document.getElementById('menu');
-            var menuIconPath = document.getElementById('menu-icon-path');
+            var menuIcon = document.getElementById('menu-icon');
             if (menu.classList.contains('menu-closed')) {
                 menu.classList.remove('menu-closed');
                 menu.classList.add('menu-open');
-                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Icône de croix
+                menuIcon.classList.add('menu-open');
             } else {
                 menu.classList.remove('menu-open');
                 menu.classList.add('menu-closed');
-                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Icône de menu burger
+                menuIcon.classList.remove('menu-open');
             }
         });
     </script>
