@@ -10,11 +10,11 @@ $photo = get_field('image');
 $titre = get_field('titre');
 ?>
 
-<div class="grid grid-cols-[3fr_4fr] h-screen">
-    <div class="p-4 flex items-end">
-        <h1 class="text-white"><?php echo esc_html($titre); ?></h1>
+<div class="grid grid-cols-[2fr_4fr] h-screen">
+    <div class="flex items-end">
+        <h1 class="text-7xl text-white"><?php echo esc_html($titre); ?></h1>
     </div>
-    <div class="p-4">
+    <div>
         <?php if ($photo) : ?>
             <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" class="w-full" /> <!-- Afficher l'image -->
         <?php endif; ?>

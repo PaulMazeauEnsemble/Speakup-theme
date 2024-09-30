@@ -13,9 +13,9 @@ function display_talent_card($post_id) {
     $first_letter = strtoupper($title[0]);
     ?>
     <div id="<?php echo $first_letter; ?>" class="talent-item flex">
-        <div class="talent-photo w-1/2">
+        <div class="talent-photo w-1/2 aspect-square overflow-hidden">
             <?php if ($photo) : ?>
-                <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" />
+                <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" class="object-cover w-full h-full" />
             <?php endif; ?>
         </div>
         <div class="w-1/2 pl-4">
