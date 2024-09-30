@@ -1,6 +1,5 @@
 <?php
 function display_talent_card($post_id) {
-    
     $title = get_the_title($post_id);
     $photo = get_field('photo', $post_id);
     $audios = array();
@@ -51,7 +50,6 @@ function display_talent_card($post_id) {
     </div>
     <?php
 }
-
 ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

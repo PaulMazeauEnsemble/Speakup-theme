@@ -22,13 +22,16 @@ get_header(); ?>
                     'terms'    => 'Femmes',
                 ),
             ),
+            'orderby' => 'title',
+            'order' => 'ASC'
         );
         $talents_query = new WP_Query($args);
 
         if ($talents_query->have_posts()) :
             while ($talents_query->have_posts()) : $talents_query->the_post();
+                $first_letter = strtoupper(get_the_title()[0]);
                 ?>
-                <div class="col-span-4">
+                <div id="<?php echo $first_letter; ?>" class="col-span-4">
                     <?php display_talent_card(get_the_ID()); ?>
                 </div>
                 <?php
