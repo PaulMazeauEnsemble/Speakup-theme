@@ -28,9 +28,9 @@ function display_talent_card($post_id) {
                                 <svg class="play-icon w-3 h-3" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 5L0.5 9.33013L0.5 0.669873L8 5Z" fill="white"/>
                                 </svg>
-                                <svg class="pause-icon hidden w-3 h-3" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 0V6" stroke="white"/>
-                                    <path d="M3 0V6" stroke="white"/>
+                                <svg class="pause-icon hidden w-3 h-3" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="1" y1="4.37114e-08" x2="1" y2="9" stroke="white" stroke-width="2"/>
+                                    <line x1="5" y1="4.37114e-08" x2="5" y2="9" stroke="white" stroke-width="2"/>
                                 </svg>
                             </button>
                             <p class="text-white text-sm ml-2">Extrait <?php echo $audio_counter; ?></p>
