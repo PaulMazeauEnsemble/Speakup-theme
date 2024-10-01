@@ -64,6 +64,7 @@ function display_talent_card($post_id) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const players = document.querySelectorAll('.custom-audio-player');
+    let currentAudio = null;
 
     players.forEach(player => {
         const audio = player.querySelector('.audio-element');
@@ -75,13 +76,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         playPauseBtn.addEventListener('click', () => {
             if (audio.paused) {
+                if (currentAudio && currentAudio !== audio) {
+                    currentAudio.pause();
+                    currentAudio.closest('.custom-audio-player').querySelector('.play-icon').classList.remove('hidden');
+                    currentAudio.closest('.custom-audio-player').querySelector('.pause-icon').classList.add('hidden');
+                }
                 audio.play();
-                playIcon.classList.add('hidden'); // Cacher l'icône de lecture
-                pauseIcon.classList.remove('hidden'); // Afficher l'icône de pause
+                playIcon.classList.add('hidden'); 
+                pauseIcon.classList.remove('hidden'); 
+                currentAudio = audio;
             } else {
                 audio.pause();
-                playIcon.classList.remove('hidden'); // Afficher l'icône de lecture
-                pauseIcon.classList.add('hidden'); // Cacher l'icône de pause
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                currentAudio = null;
             }
         });
 
