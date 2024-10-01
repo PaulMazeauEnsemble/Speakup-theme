@@ -46,7 +46,8 @@ function register_talents_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
-        'supports'           => array('title', 'editor', 'thumbnail')
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'menu_icon'          => 'dashicons-groups',
     );
 
     register_post_type('talents', $args);
@@ -86,7 +87,8 @@ function register_projets_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
-        'supports'           => array('title', 'editor', 'thumbnail')
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'menu_icon'          => 'dashicons-portfolio',
     );
 
     register_post_type('projets', $args);
