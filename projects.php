@@ -3,6 +3,13 @@
 Template Name: Projects
 */
 
+$login_page = home_url('/inscription/');
+
+if (!is_user_logged_in()) {
+    wp_redirect($login_page);
+    exit;
+}
+
 get_header(); ?>
 
 <div class="content">

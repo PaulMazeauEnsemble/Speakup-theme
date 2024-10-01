@@ -117,4 +117,13 @@ function mytheme_customize_register($wp_customize) {
 
 add_action('customize_register', 'mytheme_customize_register');
 
+function register_custom_menus() {
+    register_nav_menus(array(
+        'nos-talents-menu' => __('Nos Talents Menu', 'speakup'),
+        'a-propos-menu' => __('A Propos Menu', 'speakup'),
+        'user-menu' => __('User Menu', 'speakup')  // Ajout du nouveau menu
+    ));
+}
+add_action('init', 'register_custom_menus');
+
 ?>

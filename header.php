@@ -48,9 +48,17 @@
         </div>
         <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 menu-closed z-8">
             <?php the_custom_logo(); ?>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 place-content-center h-[calc(100vh-110px)]">
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-4 place-content-center h-[calc(100vh-110px)]">
                 <div class="col-span-3">
-                    <p class="text-white font-Space uppercase text-base md:text-xl"><?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?></p>
+                    <p class="text-white font-Space uppercase text-base md:text-xl pb-16">
+                        <?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?>
+                    </p>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'user-menu',
+                            'menu_class' => 'text-white font-Space uppercase text-base md:text-xl',
+                            'container_class' => 'custom-menu-container'
+                        )); ?>
+                        <a href="<?php echo wp_logout_url(); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
                 </div>
                 <div class="col-span-1">
                     <!-- Colonne vide -->
@@ -58,12 +66,18 @@
                 <div class="col-span-3">
                     <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Nos talents</h2>
                     <?php wp_nav_menu(array(
+                        'theme_location' => 'nos-talents-menu',
                         'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
                         'container_class' => 'custom-menu-container'
                     )); ?>
                 </div>
                 <div class="col-span-3">
-                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Notre Agence</h2>
+                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">A propos</h2>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'a-propos-menu',
+                        'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
+                        'container_class' => 'custom-menu-container'
+                    )); ?>
                 </div>
             </div>
         </nav>
