@@ -653,6 +653,10 @@ video {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
 }
@@ -713,6 +717,14 @@ video {
   height: 0.175rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -739,6 +751,14 @@ video {
 
 .w-auto {
   width: auto;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .max-w-full {
@@ -783,6 +803,10 @@ video {
 
 .place-content-center {
   place-content: center;
+}
+
+.content-center {
+  align-content: center;
 }
 
 .items-end {
