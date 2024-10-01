@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Talents Woman
+Template Name: Talents Internationaux
 */
 $login_page = home_url('/inscription/');
 
@@ -23,7 +23,7 @@ get_header(); ?>
                 array(
                     'taxonomy' => 'talent-category',
                     'field'    => 'slug',
-                    'terms'    => 'Femmes',
+                    'terms'    => 'Internationaux',
                 ),
             ),
             'orderby' => 'title',
