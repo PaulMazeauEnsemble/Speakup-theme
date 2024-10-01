@@ -14,11 +14,17 @@
         .line1, .line2 {
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
+        .line1 {
+            transform-origin: center;
+        }
+        .line2 {
+            transform-origin: center;
+        }
         .menu-open .line1 {
-            transform: rotate(45deg);
+            transform: rotate(45deg) translate(0, 0);
         }
         .menu-open .line2 {
-            transform: rotate(-45deg);
+            transform: rotate(-45deg) translate(0, 0);
         }
         .menu-open #menu-icon line {
             transform-origin: center;
