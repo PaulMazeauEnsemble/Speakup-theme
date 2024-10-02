@@ -18,7 +18,7 @@ endif;
 
 <div class="content">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <div class="grid grid-cols-1 md:grid-cols-10 gap-0 md:gap-4 h-screen">
+        <div class="grid grid-cols-1 md:grid-cols-10 gap-0 md:gap-4 h-dvh md:h-screen">
             <div class="md:col-span-4 flex items-end">
                 <h1 class="text-white text-5xl md:text-7xl p-8 font-Instrument font-thin uppercase"><?php the_field('titre'); ?></h1>
             </div>
