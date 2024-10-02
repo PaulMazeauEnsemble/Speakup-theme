@@ -4,7 +4,7 @@ function display_project_card($post_id) {
     $video = get_field('video', $post_id);
     $first_letter = strtoupper($title[0]);
     ?>
-    <div id="<?php echo $first_letter; ?>" class="project-item">
+    <div id="<?php echo $first_letter; ?>" class="project-item opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out">
         <div class="relative w-auto max-w-full max-h-full group pointer-events-auto">
             <?php if ($video) : ?>
                 <video id="video-<?php echo $post_id; ?>" class="w-full max-w-full h-full max-h-full" playsinline muted>
@@ -30,11 +30,10 @@ function display_project_card($post_id) {
                     </div>
                 </div>
             <?php endif; ?>
-            
         </div>
         <div class="w-1/2 pl-4 mt-2">
-                <h2 class="text-xl text-white font-thin"><?php echo esc_html($title); ?></h2>
-            </div>
+            <h2 class="text-xl text-white font-thin"><?php echo esc_html($title); ?></h2>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -123,6 +122,20 @@ function display_project_card($post_id) {
                 video.pause();
                 isPlaying = false;
                 playPauseButton.textContent = 'Play';
+            });
+
+            // Intersection Observer for fade-in animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.project-item').forEach(item => {
+                observer.observe(item);
             });
         });
     </script>

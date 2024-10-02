@@ -11,7 +11,7 @@ function display_talent_card($post_id) {
     }
     $first_letter = strtoupper($title[0]);
     ?>
-    <div id="<?php echo $first_letter; ?>" class="talent-item flex">
+    <div id="<?php echo $first_letter; ?>" class="talent-item flex opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out">
         <div class="talent-photo w-1/2 aspect-square overflow-hidden">
             <?php if ($photo) : ?>
                 <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" class="object-cover w-full h-full" />
@@ -97,6 +97,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const percentage = (audio.currentTime / audio.duration) * 100;
             progress.style.width = percentage + '%';
         });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('opacity-0', 'translate-y-4');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.talent-item').forEach(item => {
+        observer.observe(item);
     });
 });
 </script>

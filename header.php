@@ -59,7 +59,7 @@
         </div>
         <nav id="menu" class="md:flex md:items-center md:justify-center fixed inset-0 bg-black-bg text-white p-4 md:p-8 hidden opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
 
-            <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-10 md:grid-rows-1 gap-4 place-content-center h-dvh md:h-auto">
+            <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-10 md:grid-rows-1 gap-4 place-content-center h-[95dvh] md:h-auto pt-20 md:pt-20">
                 <div class="col-span-2 md:col-span-3 md:row-start-1">
                     <p class="text-white font-Space uppercase text-base md:text-xl pb-16">
                         <?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?>
