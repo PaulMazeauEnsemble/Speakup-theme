@@ -12,7 +12,7 @@ if (!is_user_logged_in()) {
 get_header(); ?>
 
 <div class="content">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-8 pt-32 pb-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-8 pt-32 pb-20">
     <?php
         include get_template_directory() . '/components/talent-cards.php';
 

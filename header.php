@@ -45,7 +45,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
-    <header class="text-white p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
+    <header class="text-white p-4 md:p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
         <div class="flex items-center justify-between">
             <div class="z-20">
                 <?php the_custom_logo();?>
@@ -57,10 +57,10 @@
                 </svg>
             </button>
         </div>
-        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 hidden opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
-            <!-- Suppression du logo du menu -->
-            <div class="grid grid-cols-1 md:grid-cols-10 gap-4 place-content-center h-[calc(100vh-110px)]">
-                <div class="col-span-3">
+        <nav id="menu" class="md:flex md:items-center md:justify-center fixed inset-0 bg-black-bg text-white p-4 md:p-8 hidden opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
+
+            <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-10 md:grid-rows-1 gap-4 place-content-center h-dvh md:h-auto">
+                <div class="col-span-2 md:col-span-3 md:row-start-1">
                     <p class="text-white font-Space uppercase text-base md:text-xl pb-16">
                         <?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?>
                     </p>
@@ -71,10 +71,9 @@
                     )); ?>
                     <a href="<?php echo wp_logout_url(); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
                 </div>
-                <div class="col-span-1">
-                    <!-- Colonne vide -->
+                <div class="col-span-2 md:col-span-1 md:row-start-1">
                 </div>
-                <div class="col-span-3">
+                <div class="row-start-2 md:col-span-3 md:row-start-1">
                     <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Nos talents</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'nos-talents-menu',
@@ -82,7 +81,7 @@
                         'container_class' => 'custom-menu-container'
                     )); ?>
                 </div>
-                <div class="col-span-3">
+                <div class="row-start-2 md:col-span-3 md:row-start-1">
                     <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">A propos</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'a-propos-menu',
@@ -91,6 +90,7 @@
                     )); ?>
                 </div>
             </div>
+
         </nav>
     </header>
     <script>
