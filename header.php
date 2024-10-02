@@ -32,6 +32,9 @@
         .custom-menu li {
             padding-bottom: 20px;
         }
+        .custom-menu-login li {
+            padding-bottom: 6px;
+        }
     </style>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/styles.css">
@@ -44,7 +47,9 @@
 <body <?php body_class(); ?>>
     <header class="text-white p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
         <div class="flex items-center justify-between">
-            <?php the_custom_logo(); ?>
+            <div class="z-20">
+                <?php the_custom_logo();?>
+            </div>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">
                 <svg id="menu-icon" width="35" height="12" viewBox="0 0 35 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line class="line1" y1="1" x2="35" y2="1" stroke="white" stroke-width="2"/>
@@ -52,19 +57,19 @@
                 </svg>
             </button>
         </div>
-        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 menu-closed z-8">
-            <?php the_custom_logo(); ?>
+        <nav id="menu" class="fixed inset-0 bg-black-bg text-white p-8 hidden opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
+            <!-- Suppression du logo du menu -->
             <div class="grid grid-cols-1 md:grid-cols-10 gap-4 place-content-center h-[calc(100vh-110px)]">
                 <div class="col-span-3">
                     <p class="text-white font-Space uppercase text-base md:text-xl pb-16">
                         <?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?>
                     </p>
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'user-menu',
-                            'menu_class' => 'text-white font-Space uppercase text-base md:text-xl',
-                            'container_class' => 'custom-menu-container'
-                        )); ?>
-                        <a href="<?php echo wp_logout_url(); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'user-menu',
+                        'menu_class' => 'text-white font-Space uppercase text-base md:text-xl custom-menu-login',
+                        'container_class' => 'custom-menu-container'
+                    )); ?>
+                    <a href="<?php echo wp_logout_url(); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
                 </div>
                 <div class="col-span-1">
                     <!-- Colonne vide -->
@@ -92,13 +97,19 @@
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var menu = document.getElementById('menu');
             var menuIcon = document.getElementById('menu-icon');
-            if (menu.classList.contains('menu-closed')) {
-                menu.classList.remove('menu-closed');
-                menu.classList.add('menu-open');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                setTimeout(function() {
+                    menu.classList.remove('opacity-0', '-translate-y-10');
+                    menu.classList.add('opacity-100', 'translate-y-0');
+                }, 10); // Petit délai pour permettre l'application des classes
                 menuIcon.classList.add('menu-open');
             } else {
-                menu.classList.remove('menu-open');
-                menu.classList.add('menu-closed');
+                menu.classList.add('opacity-0', '-translate-y-10');
+                menu.classList.remove('opacity-100', 'translate-y-0');
+                setTimeout(function() {
+                    menu.classList.add('hidden');
+                }, 500); // Délai pour permettre l'animation de fermeture
                 menuIcon.classList.remove('menu-open');
             }
         });
