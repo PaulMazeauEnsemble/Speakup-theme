@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
     <header class="text-white p-4 md:p-8 w-full fixed top-0 left-0 z-10 bg-black-bg">
@@ -70,15 +70,15 @@
 
             <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-10 md:grid-rows-1 gap-4 place-content-center h-[95dvh] md:h-auto pt-20 md:pt-20">
                 <div class="col-span-2 md:col-span-3 md:row-start-1">
-                    <p class="text-white font-Space uppercase text-base md:text-xl pb-16">
+                    <p class="text-white font-DM uppercase text-base md:text-xl pb-16">
                         <?php echo get_theme_mod('mytheme_custom_text', __('Ici texte', 'mytheme')); ?>
                     </p>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'user-menu',
-                        'menu_class' => 'text-white font-Space uppercase text-base md:text-xl custom-menu-login',
+                        'menu_class' => 'text-white font-DM uppercase text-base md:text-xl custom-menu-login',
                         'container_class' => 'custom-menu-container'
                     )); ?>
-                    <a href="<?php echo wp_logout_url(home_url()); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>" class="text-white font-DM uppercase text-base md:text-xl">Se déconnecter</a>
                 </div>
                 <div class="col-span-2 md:col-span-1 md:row-start-1">
                 </div>

@@ -11,8 +11,7 @@ module.exports = {
       },
       fontFamily: {
         "Instrument": ['Instrument Serif', 'serif'],
-        "Space": ['Space Grotesk', 'sans-serif'],
-        "DM": ['DM Sans', 'sans-serif'],
+        "DM": ['DM Mono', 'sans-serif'],
       }
     },
   },
