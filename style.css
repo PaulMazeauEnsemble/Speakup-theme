@@ -554,8 +554,16 @@ video {
   display: none;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .pointer-events-auto {
   pointer-events: auto;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .fixed {
@@ -1002,6 +1010,10 @@ video {
   padding-top: 5rem;
 }
 
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
 .font-DM {
   font-family: DM Sans, sans-serif;
 }
@@ -1353,6 +1365,10 @@ body {
 
   .md\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .md\:pb-10 {
+    padding-bottom: 2.5rem;
   }
 
   .md\:text-4xl {

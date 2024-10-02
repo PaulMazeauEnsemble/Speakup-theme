@@ -7,9 +7,13 @@
     <style>
         .menu-open {
             display: block;
+            visibility: visible;
+            pointer-events: auto;
         }
         .menu-closed {
-            display: none;
+            display: block;
+            visibility: hidden;
+            pointer-events: none;
         }
         .line1, .line2 {
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -31,6 +35,11 @@
         }
         .custom-menu li {
             padding-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .custom-menu li {
+                padding-bottom: 12px;
+            }
         }
         .custom-menu-login li {
             padding-bottom: 6px;
@@ -57,7 +66,7 @@
                 </svg>
             </button>
         </div>
-        <nav id="menu" class="md:flex md:items-center md:justify-center fixed inset-0 bg-black-bg text-white p-4 md:p-8 hidden opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
+        <nav id="menu" class="md:flex md:items-center md:justify-center fixed inset-0 bg-black-bg text-white p-4 md:p-8 menu-closed opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">
 
             <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-10 md:grid-rows-1 gap-4 place-content-center h-[95dvh] md:h-auto pt-20 md:pt-20">
                 <div class="col-span-2 md:col-span-3 md:row-start-1">
@@ -74,7 +83,7 @@
                 <div class="col-span-2 md:col-span-1 md:row-start-1">
                 </div>
                 <div class="row-start-2 md:col-span-3 md:row-start-1">
-                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">Nos talents</h2>
+                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">Nos talents</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'nos-talents-menu',
                         'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
@@ -82,7 +91,7 @@
                     )); ?>
                 </div>
                 <div class="row-start-2 md:col-span-3 md:row-start-1">
-                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-10 decoration-2 underline-offset-4">A propos</h2>
+                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">A propos</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'a-propos-menu',
                         'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
@@ -97,8 +106,9 @@
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var menu = document.getElementById('menu');
             var menuIcon = document.getElementById('menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
+            if (menu.classList.contains('menu-closed')) {
+                menu.classList.remove('menu-closed');
+                menu.classList.add('menu-open');
                 setTimeout(function() {
                     menu.classList.remove('opacity-0', '-translate-y-10');
                     menu.classList.add('opacity-100', 'translate-y-0');
@@ -108,7 +118,8 @@
                 menu.classList.add('opacity-0', '-translate-y-10');
                 menu.classList.remove('opacity-100', 'translate-y-0');
                 setTimeout(function() {
-                    menu.classList.add('hidden');
+                    menu.classList.remove('menu-open');
+                    menu.classList.add('menu-closed');
                 }, 500); // Délai pour permettre l'animation de fermeture
                 menuIcon.classList.remove('menu-open');
             }
