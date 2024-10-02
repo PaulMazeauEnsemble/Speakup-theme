@@ -123,14 +123,24 @@ function register_custom_menus() {
     register_nav_menus(array(
         'nos-talents-menu' => __('Nos Talents Menu', 'speakup'),
         'a-propos-menu' => __('A Propos Menu', 'speakup'),
-        'user-menu' => __('User Menu', 'speakup')  // Ajout du nouveau menu
+        'user-menu' => __('User Menu', 'speakup') 
     ));
 }
 add_action('init', 'register_custom_menus');
 
+
+//Style/Animation pour les liens dans le menu
 function add_custom_class_to_menu_links($items) {
     return preg_replace('/<a /', '<a class="relative w-fit block after:block after:content-[\'\'] after:absolute after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left" ', $items);
 }
 add_filter('wp_nav_menu_items', 'add_custom_class_to_menu_links');
+
+
+//Autoriser l'upload de svg
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml'; 
+    return $mimes;
+  }
+  add_filter('upload_mimes', 'cc_mime_types'); 
 
 ?>
