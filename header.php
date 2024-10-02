@@ -83,18 +83,18 @@
                 <div class="col-span-2 md:col-span-1 md:row-start-1">
                 </div>
                 <div class="row-start-2 md:col-span-3 md:row-start-1">
-                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">Nos talents</h2>
+                    <h2 class="text-white text-xl md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">Nos talents</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'nos-talents-menu',
-                        'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
+                        'menu_class' => 'text-white text-base text-xl md:text-4xl font-Instrument uppercase custom-menu',
                         'container_class' => 'custom-menu-container'
                     )); ?>
                 </div>
                 <div class="row-start-2 md:col-span-3 md:row-start-1">
-                    <h2 class="text-white text-base md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">A propos</h2>
+                    <h2 class="text-white text-xl md:text-4xl font-Instrument uppercase underline pb-5 md:pb-10 decoration-2 underline-offset-4">A propos</h2>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'a-propos-menu',
-                        'menu_class' => 'text-white text-base text-base md:text-4xl font-Instrument uppercase custom-menu',
+                        'menu_class' => 'text-white text-base text-xl md:text-4xl font-Instrument uppercase custom-menu',
                         'container_class' => 'custom-menu-container'
                     )); ?>
                 </div>
