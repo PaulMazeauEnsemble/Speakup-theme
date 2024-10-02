@@ -78,7 +78,7 @@
                         'menu_class' => 'text-white font-Space uppercase text-base md:text-xl custom-menu-login',
                         'container_class' => 'custom-menu-container'
                     )); ?>
-                    <a href="<?php echo wp_logout_url(); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>" class="text-white font-Space uppercase text-base md:text-xl">Se déconnecter</a>
                 </div>
                 <div class="col-span-2 md:col-span-1 md:row-start-1">
                 </div>
