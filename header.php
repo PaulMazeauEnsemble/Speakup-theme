@@ -16,19 +16,16 @@
             pointer-events: none;
         }
         .line1, .line2 {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .line1 {
-            transform-origin: center;
-        }
-        .line2 {
+            transition: transform 0.3s ease, width 0.3s ease;
             transform-origin: center;
         }
         .menu-open .line1 {
-            transform: rotate(45deg) translate(0, 0);
+            transform: rotate(45deg) translate(0px, 5px);
+            width: 35px;
         }
         .menu-open .line2 {
-            transform: rotate(-45deg) translate(0, 0);
+            transform: rotate(-45deg) translate(0px, -5px);
+            width: 35px;
         }
         .menu-open #menu-icon line {
             transform-origin: center;
@@ -43,6 +40,28 @@
         }
         .custom-menu-login li {
             padding-bottom: 6px;
+        }
+        #menu-icon {
+            width: 29px;
+            height: 27px;
+            position: relative;
+        }
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+        }
+        .line1 { top: 8px; }
+        .line2 { bottom: 8px; }
+        .menu-open .line1 {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        .menu-open .line2 {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
         }
     </style>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
@@ -60,10 +79,10 @@
                 <?php the_custom_logo();?>
             </div>
             <button id="menu-toggle" class="text-white focus:outline-none z-10 relative">
-                <svg id="menu-icon" width="35" height="12" viewBox="0 0 35 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line class="line1" y1="1" x2="35" y2="1" stroke="white" stroke-width="2"/>
-                    <line class="line2" y1="11" x2="35" y2="11" stroke="white" stroke-width="2"/>
-                </svg>
+                <div id="menu-icon">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
             </button>
         </div>
         <nav id="menu" class="md:flex md:items-center md:justify-center fixed inset-0 bg-black-bg text-white p-4 md:p-8 menu-closed opacity-0 transform -translate-y-10 transition-all duration-500 ease-in-out z-8">

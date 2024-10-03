@@ -143,4 +143,14 @@ function cc_mime_types($mimes) {
   }
   add_filter('upload_mimes', 'cc_mime_types'); 
 
+function custom_wpmem_text_strings( $text ) {
+    // Modifier les légendes des formulaires ici
+    $text['login_heading'] = __( 'Connexion pour les utilisateurs enregistrés', 'wp-members' );
+    $text['register_heading'] = __( 'Nouvel utilisateur ?', 'wp-members' );
+    // Ajoutez d'autres modifications de légendes ici
+
+    return $text;
+}
+add_filter( 'wpmem_default_text', 'custom_wpmem_text_strings' );
+
 ?>
