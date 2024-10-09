@@ -31,9 +31,12 @@ get_header(); ?>
         );
         $talents_query = new WP_Query($args);
 
+        $used_letters = array();
+
         if ($talents_query->have_posts()) :
             while ($talents_query->have_posts()) : $talents_query->the_post();
                 $first_letter = strtoupper(get_the_title()[0]);
+                $used_letters[] = $first_letter;
                 ?>
                 <div id="<?php echo $first_letter; ?>" class="col-span-1">
                     <?php display_talent_card(get_the_ID()); ?>
