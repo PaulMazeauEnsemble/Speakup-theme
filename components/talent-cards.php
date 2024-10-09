@@ -43,7 +43,7 @@ function display_talent_card($post_id) {
                                 <div class="progress bg-white h-0.5"></div>
                             </div>
                             <audio class="audio-element">
-                                <source src="<?php echo esc_url($audio['extrait']['url']); ?>" type="<?php echo esc_attr($audio['extrait']['mime_type']); ?>">
+                                <source src="<?php echo esc_url($audio['extrait']['url']); ?>" type="audio/mpeg"> 
                                 Votre navigateur ne supporte pas l'élément audio.
                             </audio>
                         </div>
