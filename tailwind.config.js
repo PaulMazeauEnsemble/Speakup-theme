@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         'black-bg': '#1D1D1D',
+        'dimgray': '#696969',
       },
       fontFamily: {
         "Instrument": ['Instrument Serif', 'serif'],

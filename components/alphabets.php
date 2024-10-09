@@ -4,12 +4,11 @@
         $all_letters = range('A', 'Z');
         foreach ($all_letters as $letter) : 
             $is_used = in_array($letter, $used_letters);
-            $class = $is_used ? 'text-white hover:text-gray-400' : 'text-gray-200';
         ?>
             <?php if ($is_used): ?>
-                <a href="#<?php echo $letter; ?>" class="<?php echo $class; ?> text-xs sm:text-sm md:text-base lg:text-lg alphabet-link font-DM font-thin"><?php echo $letter; ?></a>
+                <a href="#<?php echo $letter; ?>" class="text-xs sm:text-sm md:text-base lg:text-lg alphabet-link font-DM font-thin text-white"><?php echo $letter; ?></a>
             <?php else: ?>
-                <span class="<?php echo $class; ?> text-xs sm:text-sm md:text-base lg:text-lg font-DM font-thin"><?php echo $letter; ?></span>
+                <span class="text-xs sm:text-sm md:text-base lg:text-lg font-DM font-thin text-gray"><?php echo $letter; ?></span>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
