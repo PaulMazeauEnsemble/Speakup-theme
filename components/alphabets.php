@@ -1,7 +1,16 @@
 <div class="alphabet-navigation fixed bottom-0 w-full p-2 bg-black-bg">
     <div class="flex justify-center flex-wrap space-x-1 sm:space-x-2">
-        <?php foreach (range('A', 'Z') as $letter) : ?>
-            <a href="#<?php echo $letter; ?>" class="text-white text-xs sm:text-sm md:text-base lg:text-lg hover:text-gray-400 alphabet-link font-DM font-thin"><?php echo $letter; ?></a>
+        <?php 
+        $all_letters = range('A', 'Z');
+        foreach ($all_letters as $letter) : 
+            $is_used = in_array($letter, $used_letters);
+            $class = $is_used ? 'text-white hover:text-gray-400' : 'text-gray-200';
+        ?>
+            <?php if ($is_used): ?>
+                <a href="#<?php echo $letter; ?>" class="<?php echo $class; ?> text-xs sm:text-sm md:text-base lg:text-lg alphabet-link font-DM font-thin"><?php echo $letter; ?></a>
+            <?php else: ?>
+                <span class="<?php echo $class; ?> text-xs sm:text-sm md:text-base lg:text-lg font-DM font-thin"><?php echo $letter; ?></span>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </div>
@@ -16,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Ajustez cette valeur selon la hauteur de votre header fixe
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
