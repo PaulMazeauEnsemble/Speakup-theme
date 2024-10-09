@@ -153,4 +153,11 @@ function custom_wpmem_text_strings( $text ) {
 }
 add_filter( 'wpmem_default_text', 'custom_wpmem_text_strings' );
 
+add_filter( 'wpmem_login_redirect', 'my_login_redirect', 10, 2 );
+function my_login_redirect( $redirect_to, $user_id ) {
+    
+    return home_url( '/' );
+
+}
+
 ?>
