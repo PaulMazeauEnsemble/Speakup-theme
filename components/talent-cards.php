@@ -4,8 +4,16 @@ function display_talent_card($post_id) {
     $photo = get_field('photo', $post_id);
     $audios = get_field('audio', $post_id);
     $first_letter = strtoupper($title[0]);
+    $categories = get_the_terms($post_id, 'talent-category');
+    $category_classes = '';
+
+    if ($categories) {
+        foreach ($categories as $category) {
+            $category_classes .= ' ' . $category->slug;
+        }
+    }
     ?>
-    <div id="<?php echo $first_letter; ?>" class="talent-item flex opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out">
+    <div id="<?php echo $first_letter; ?>" class="talent-item flex opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out<?php echo $category_classes; ?>">
         <div class="talent-photo w-2/5 aspect-square overflow-hidden">
             <?php if ($photo) : ?>
                 <img src="<?php echo esc_url($photo['url']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>" class="object-cover w-full h-full" />
